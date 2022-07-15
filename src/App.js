@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 // import Login from "./Component/LoginPage/Login";
 import Home from "./Component/Home/Home";
 import Footer from "./Component/Footer/Footer";
-import { Create_quizz } from "./Component/create_quizz/Create_quizz";
+import { Add_question } from "./Component/create_quizz/Add_question";
 
 function App() {
   const smalllogi = useSelector(selectsmalllogin);
@@ -25,7 +25,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
         </Routes> */}
         {/* <Footer/> */}
-        <Create_quizz/>
+        <Add_question/>
       </BrowserRouter>
     </div>
   );

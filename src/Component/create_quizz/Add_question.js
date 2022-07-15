@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';            
 import React, { useState } from 'react'
 
-export const Create_quizz = () => {
+export const Add_question = () => {
     const [numberOfQuestion, setNumberOfQuestion] = useState(4)
   return (
     <>
