@@ -10,6 +10,7 @@ import {
 import { useSelector } from "react-redux";
 // import Login from "./Component/LoginPage/Login";
 import Home from "./Component/Home/Home";
+import Footer from "./Component/Footer/Footer";
 
 function App() {
   const smalllogi = useSelector(selectsmalllogin);
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
         </Routes>
+        {/* <Footer/> */}
       </BrowserRouter>
     </div>
   );
