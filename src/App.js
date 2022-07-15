@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 // import Login from "./Component/LoginPage/Login";
 import Home from "./Component/Home/Home";
 import Footer from "./Component/Footer/Footer";
+import { Create_quizz } from "./Component/create_quizz/Create_quizz";
 
 function App() {
   const smalllogi = useSelector(selectsmalllogin);
@@ -18,12 +19,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         {/* {smalllogi ? <Login /> : ""} */}
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Home />}></Route>
-        </Routes>
+        </Routes> */}
         {/* <Footer/> */}
+        <Create_quizz/>
       </BrowserRouter>
     </div>
   );
