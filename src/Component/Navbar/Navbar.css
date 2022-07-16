@@ -15,6 +15,7 @@
 }
 
 .nav_items {
+
   margin-left: 0px;
   font-size: 18px;
   font-weight: 500;
@@ -39,6 +40,7 @@
 
 .basket_icons {
   display: flex;
+  float: right;
   flex-direction: row;
   align-items: flex-end;
   float: right;
@@ -50,6 +52,7 @@
 
 .nav_icons {
   display: flex;
+
   flex-direction: column;
   margin-left: 30px;
   align-items: center;
@@ -59,6 +62,8 @@
 
 .nav_icons > span {
   font-size: 12px;
+  
+ 
 }
 
 @media screen and (max-width: 990px) {

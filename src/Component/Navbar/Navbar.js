@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import logo from "./logo.png";
 import { useDispatch } from "react-redux";
 import $ from "jquery";
 import {
@@ -28,7 +29,7 @@ function Navbar() {
             }}
           >
             <img
-              src="https://raw.githubusercontent.com/LNMCode/MQChoice-Quizizz-clone/master/WebApplication/MCQWeb/public/image/logo.jpg"
+              src={logo}
               style={{ width: "13vw", height: "5vh", objectFit: "cover" }}
             />
           </a>
