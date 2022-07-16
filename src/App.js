@@ -17,6 +17,9 @@ import { auth, db } from "./Firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { toast } from "react-toastify";
 // toast.configure();
+import Footer from "./Component/Footer/Footer";
+import { Add_question } from "./Component/create_quizz/Add_question";
+import { Create_quizz } from "./Component/create_quizz/Create_quizz";
 
 function App() {
   const dispatch = useDispatch();
