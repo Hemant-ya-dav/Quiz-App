@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import logo from "./logo.png";
 import { useDispatch } from "react-redux";
 import $ from "jquery";
 import {
@@ -13,7 +14,6 @@ function Navbar() {
   const dispatch = useDispatch();
 
   const xwidth = window.screen.width;
-  
 
   return (
     <div className="navbar_body">
@@ -29,7 +29,7 @@ function Navbar() {
             }}
           >
             <img
-              //   src={logo}
+              src={logo}
               style={{ width: "13vw", height: "5vh", objectFit: "cover" }}
             />
           </a>

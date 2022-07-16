@@ -15,11 +15,12 @@ import SmallProfile from "./Component/LoginPage/SmallProfile";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // toast.configure();
 import Footer from "./Component/Footer/Footer";
-import { Add_question } from "./Component/Create_quizz/Add_question";
-import { Create_quizz } from "./Component/Create_quizz/Create_quizz";
+import { Add_question } from "./Component/create_quizz/Add_question";
+import { Create_quizz } from "./Component/create_quizz/Create_quizz";
 import { Quizz_screen } from "./Component/Quizz/Quizz_screen";
 import { Result } from "./Component/Quizz/Result"
 
@@ -36,15 +37,6 @@ function App() {
             user.displayName = docSnap.data().name;
             user.photoURL = docSnap.data().photourl;
             dispatch(SET_USER(user));
-            toast.success(`You Have Already Register`, {
-              position: "top-right",
-              autoClose: 2000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: false,
-              draggable: true,
-              progress: undefined,
-            });
           }
           // console.log("This is user auth function", user);
         }
@@ -62,6 +54,9 @@ function App() {
         {smallprof ? <SmallProfile /> : ""}
         {smalllogi ? <Login /> : ""}
         <Switch>
+          <Route path="/addquestion">
+            <Create_quizz />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
@@ -70,6 +65,7 @@ function App() {
             <Create_quizz/>
           </Route>
         </Switch>
+        <ToastContainer />
       </div>
     </Router>
   );

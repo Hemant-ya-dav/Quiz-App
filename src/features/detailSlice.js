@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  detail: [],
+  questionsDe: [],
   user: [],
   smallProfile: false,
   smallLogin: false,
@@ -12,10 +12,23 @@ export const detailSlice = createSlice({
   initialState,
 
   reducers: {
-    productLoader: (state, action) => {
-      state.detail = action.payload;
+    ADD_TO_QUESTION: (state, action) => {
+      return {
+        ...state,
+        questionsDe: [...state.questionsDe, action.payload],
+      };
     },
-
+    REMOVE_FROM_QUESTION: (state, action) => {
+      let newBasket = [...state.questionsDe];
+      let index=action.payload;
+      if (index >= 0) {
+        newBasket.splice(index, 1); //Cut the same index to the newBasket by one
+      }
+      return {
+        ...state,
+        questionsDe: newBasket,
+      };
+    },
     SET_USER: (state, action) => {
       return {
         ...state,
@@ -38,18 +51,16 @@ export const detailSlice = createSlice({
 });
 
 export const {
-  productLoader,
   SET_USER,
   SMALL_PROFILE,
   SMALL_LOGIN,
   SET_USERLOGOUT,
+  ADD_TO_QUESTION,
+  REMOVE_FROM_QUESTION
 } = detailSlice.actions;
 
-export const selectDetails = (state) => state.detail.detail;
+export const selectDetails = (state) => state.detail.questionsDe;
 export const selectUser = (state) => state.detail.user;
-export const selectUserUid = (state) => state.detail.useruid;
-export const selectMobile = (state) => state.detail.mobile;
-export const selectsmallbasket = (state) => state.detail.smallBasket;
 export const selectsmallprofile = (state) => state.detail.smallProfile;
 export const selectsmalllogin = (state) => state.detail.smallLogin;
 
