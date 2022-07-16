@@ -49,5 +49,15 @@
 
 .keyup_board {
   width: 80px !important;
-  height:80px !important;
+  height: 80px !important;
+}
+
+.home_div {
+  display: grid;
+  grid-template-columns: repeat(3, 0fr);
+  grid-template-rows: repeat(3, 0.2fr);
+  flex-grow: 1;
+  grid-gap: 70px;
+  /* margin-top: 50px; */
+  /* padding:20px; */
 }

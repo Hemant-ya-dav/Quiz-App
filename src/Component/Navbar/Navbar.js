@@ -13,7 +13,6 @@ function Navbar() {
   const dispatch = useDispatch();
 
   const xwidth = window.screen.width;
-  
 
   return (
     <div className="navbar_body">
@@ -29,7 +28,7 @@ function Navbar() {
             }}
           >
             <img
-              //   src={logo}
+              src="https://raw.githubusercontent.com/LNMCode/MQChoice-Quizizz-clone/master/WebApplication/MCQWeb/public/image/logo.jpg"
               style={{ width: "13vw", height: "5vh", objectFit: "cover" }}
             />
           </a>

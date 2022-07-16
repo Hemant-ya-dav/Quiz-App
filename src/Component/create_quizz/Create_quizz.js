@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import { Add_question } from './Add_question';
-import Form from 'react-bootstrap/Form';
-
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import { Add_question } from "./Add_question";
+import Form from "react-bootstrap/Form";
+import "./Create_quizz.css";
 
 export const Create_quizz = () => {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    return (
-        <>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Name of Quizz</Form.Label>
-                <Form.Control type="text" placeholder="" />
-                <Form.Text className="text-muted">
-                    Choose a relateable name
-                </Form.Text>
-            </Form.Group>
+  return (
+    <div className="create_quiz">
+      <Form.Group
+        className="mb-3"
+        style={{ marginTop: "100px" }}
+        controlId="formBasicEmail"
+      >
+        <Form.Label style={{textAlign:"center"}}>Name of Quizz</Form.Label>
+        <Form.Control type="text" placeholder="" />
+        {/* <Form.Text className="text-muted">Choose a relateable name</Form.Text> */}
+      </Form.Group>
 
-            
-            <div>Display questions</div>
-            <Button variant="primary" onClick={handleShow}>
-                Add Question
-            </Button>
-            <Offcanvas show={show} onHide={handleClose} backdrop="static">
-                <Offcanvas.Header closeButton>
-                </Offcanvas.Header>
-                <Add_question />
-            </Offcanvas>
-        </>
-    )
-}
+      {/* <div>Display questions</div> */}
+      <Button variant="primary" onClick={handleShow}>
+        Add Question
+      </Button>
+      <Offcanvas show={show} onHide={handleClose} backdrop="static">
+        <Offcanvas.Header closeButton></Offcanvas.Header>
+        <Add_question />
+      </Offcanvas>
+    </div>
+  );
+};

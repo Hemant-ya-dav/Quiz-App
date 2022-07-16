@@ -2,9 +2,17 @@ import React from "react";
 import "./QuizzCard.css";
 import Tilt from "react-vanilla-tilt";
 import { useHistory } from "react-router-dom";
+import { Button } from "@mui/material";
+import CountdownTimer from "../CountDown/CountdownTimer";
+
 
 function QuizzCard() {
   const history = useHistory();
+
+  const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
+  const NOW_IN_MS = new Date().getTime();
+
+  const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
 
   const productdetail = () => {
     history.push("/productpage");
@@ -23,6 +31,24 @@ function QuizzCard() {
                 alt=""
                 onClick={productdetail}
               />
+            </div>
+            <div className="product_detail">
+              <div className="quiz_detail">
+                <h3>Saurabh Yadav</h3>
+                <h5>Title : Science</h5>
+                <h5>No. Question : 10</h5>
+              </div>
+              <div className="quizz_btn">
+                <Button
+                  className="quizz_btn_in"
+                  // onClick={() => dispatch(SMALL_LOGIN(true))}
+                >
+                  Start
+                </Button>
+              </div>
+              <div className="quizz_counter">
+                <CountdownTimer targetDate={dateTimeAfterThreeDays} />
+              </div>
             </div>
           </div>
         </div>
