@@ -1,18 +1,21 @@
 import React from "react";
 import "./Navbar.css";
 import logo from "./logo.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import $ from "jquery";
 import {
+  selectUser,
   SMALL_BASKET,
   SMALL_LOGIN,
   SMALL_PROFILE,
 } from "../../features/detailSlice";
 import PersonIcon from "@mui/icons-material/Person";
+import { useHistory } from "react-router-dom";
 
 function Navbar() {
   const dispatch = useDispatch();
-
+  const user = useSelector(selectUser);
+  const history = useHistory();
   const xwidth = window.screen.width;
 
   return (
@@ -26,6 +29,7 @@ function Navbar() {
               if (xwidth <= 990) {
                 $(".navbar-collapse").hide(500, "linear");
               }
+              history.push("/");
             }}
           >
             <img
@@ -60,11 +64,15 @@ function Navbar() {
                   Home
                 </a>
               </li>
-              <li className="nav-item nav_items">
-                <a className="nav-link" href="#">
-                  Quizz
-                </a>
-              </li>
+              {user !== null ? (
+                <li className="nav-item nav_items">
+                  <a className="nav-link" href="#">
+                    Quizz
+                  </a>
+                </li>
+              ) : (
+                ""
+              )}
               <div className="basket_icons">
                 <li
                   className="nav-item nav_icons"

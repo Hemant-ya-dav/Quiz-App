@@ -14,11 +14,17 @@ function Home() {
 
   return (
     <div className="home_page">
-      <div className="home_div">
-        <QuizzCard />
-        <QuizzCard />
-        <QuizzCard />
-      </div>
+      {user !== null ? (
+        <>
+          <div className="home_div">
+            <QuizzCard />
+            <QuizzCard />
+            <QuizzCard />
+          </div>
+        </>
+      ) : (
+        ""
+      )}
       {user !== null ? (
         // <Link to="/addquestion">
         <div

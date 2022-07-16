@@ -31,11 +31,10 @@ function App() {
     () =>
       onAuthStateChanged(auth, async (user) => {
         if (user) {
-          const docRef = doc(db, "userInfo", user.email);
+          const docRef = doc(db, "userInfo", user.uid);
           const docSnap = await getDoc(docRef);
           if (docSnap.exists()) {
             user.displayName = docSnap.data().name;
-            user.photoURL = docSnap.data().photourl;
             dispatch(SET_USER(user));
           }
           // console.log("This is user auth function", user);
