@@ -40,7 +40,11 @@
 .basket_icons {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
+  float: right;
+  right:10%;
+  margin-right:10px;
+  /* align-items: center; */
   justify-content: space-between;
 }
 

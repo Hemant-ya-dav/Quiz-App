@@ -3,9 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   detail: [],
   user: [],
-  useruid: null,
-  mobile: null,
-  smallBasket: false,
   smallProfile: false,
   smallLogin: false,
 };
@@ -31,18 +28,6 @@ export const detailSlice = createSlice({
         user: [],
       };
     },
-    SET_USERUID: (state, action) => {
-      return {
-        ...state,
-        useruid: action.payload,
-      };
-    },
-    SET_USER_MOBILE: (state, action) => {
-      state.mobile = action.payload;
-    },
-    SMALL_BASKET: (state, action) => {
-      state.smallBasket = action.payload;
-    },
     SMALL_PROFILE: (state, action) => {
       state.smallProfile = action.payload;
     },
@@ -55,9 +40,6 @@ export const detailSlice = createSlice({
 export const {
   productLoader,
   SET_USER,
-  SET_USER_MOBILE,
-  SET_USERUID,
-  SMALL_BASKET,
   SMALL_PROFILE,
   SMALL_LOGIN,
   SET_USERLOGOUT,
