@@ -13,7 +13,7 @@ import Login from "./Component/LoginPage/Login";
 import Home from "./Component/Home/Home";
 import SmallProfile from "./Component/LoginPage/SmallProfile";
 import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "./Firebase";
+import { auth, db } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { toast } from "react-toastify";
 // toast.configure();
@@ -64,6 +64,10 @@ function App() {
         <Switch>
           <Route path="/">
             <Home />
+          </Route>
+          <Route path="/addquizz">
+            <Add_question/>
+            <Create_quizz/>
           </Route>
         </Switch>
       </div>
