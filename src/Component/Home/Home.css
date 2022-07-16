@@ -1,0 +1,53 @@
+.home_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.home_div {
+  margin-top: 100px;
+}
+
+.upscroll_main {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s linear 0s, visibility;
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 100;
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50%;
+}
+
+.upscroll {
+  position: absolute;
+  right: 20px;
+  bottom: 70px;
+  background-color: #fff;
+  z-index: 100;
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50%;
+}
+.key_icon {
+  background-color: whitesmoke !important;
+  width: 80px !important;
+  height: 80px !important;
+  box-shadow: 0 4px 6px -3px #9a9a9a !important;
+  z-index: 100;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  border-radius: 50% !important;
+}
+
+.keyup_board {
+  width: 80px !important;
+  height:80px !important;
+}

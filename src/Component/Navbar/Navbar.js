@@ -7,6 +7,7 @@ import {
   SMALL_LOGIN,
   SMALL_PROFILE,
 } from "../../features/detailSlice";
+import PersonIcon from "@mui/icons-material/Person";
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -74,7 +75,7 @@ function Navbar() {
                     dispatch(SMALL_PROFILE(true));
                   }}
                 >
-                  {/* <PersonIcon /> */}
+                  <PersonIcon />
                   <span>Profile</span>
                 </li>
               </div>
