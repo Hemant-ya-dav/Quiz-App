@@ -11,8 +11,10 @@ import { useSelector } from "react-redux";
 // import Login from "./Component/LoginPage/Login";
 import Home from "./Component/Home/Home";
 import Footer from "./Component/Footer/Footer";
-import { Add_question } from "./Component/create_quizz/Add_question";
-import { Create_quizz } from "./Component/create_quizz/Create_quizz";
+import { Add_question } from "./Component/Create_quizz/Add_question";
+import { Create_quizz } from "./Component/Create_quizz/Create_quizz";
+import { Quizz_screen } from "./Component/Quizz/Quizz_screen";
+import { Result } from "./Component/Quizz/Result"
 
 function App() {
   const smalllogi = useSelector(selectsmalllogin);
@@ -24,10 +26,12 @@ function App() {
         {/* {smalllogi ? <Login /> : ""} */}
         {/* <Routes>
           <Route path="/" element={<Home />}></Route>
-        </Routes> */}
-        {/* <Footer/> */}
+        </Routes>
+        <Footer/> */}
         {/* <Add_question/> */}
-        <Create_quizz/>
+        {/* <Create_quizz/> */}
+        <Quizz_screen/>
+        <Result/>
       </BrowserRouter>
     </div>
   );
