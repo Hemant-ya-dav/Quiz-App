@@ -44,10 +44,10 @@ export const Create_quizz = () => {
     var milliseconds = date.getTime();
     console.log(milliseconds);
     const unique_id = uuid();
-    console.log(unique_id)
+    console.log(unique_id);
     const small_id = unique_id.slice(0, 8);
     console.log(small_id);
-    setDoc(doc(db, "userInfo", `${user.email}`, "question",`${small_id}`), {
+    setDoc(doc(db, "userInfo", `${user.email}`, "question", `${small_id}`), {
       topic: topic,
       questions: questionenter,
       endtime: milliseconds,
@@ -105,7 +105,10 @@ export const Create_quizz = () => {
         <DatePicker
           showTimeSelect
           selected={startDate}
-          onChange={(date) => setStartDate(date)}
+          onChange={(date) => {
+            console.log(date);
+            setStartDate(date);
+          }}
           timeClassName={handleColor}
         />
       </div>

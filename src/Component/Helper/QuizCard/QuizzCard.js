@@ -5,9 +5,12 @@ import { useHistory } from "react-router-dom";
 import { Button, IconButton } from "@mui/material";
 import CountdownTimer from "../CountDown/CountdownTimer";
 import CloseIcon from "@mui/icons-material/Close";
-import { useDispatch } from "react-redux";
-import { ALL_TO_QUIZ } from "../../../features/detailSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { ALL_TO_QUIZ, selectUser } from "../../../features/detailSlice";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../../Firebase";
+import moment from 'moment'
 
 function QuizzCard(props) {
   const history = useHistory();
@@ -15,7 +18,8 @@ function QuizzCard(props) {
   const [questions, setquestion] = useState(props.question);
   const [seed, setseed] = useState("");
   const dispatch = useDispatch();
-  console.log(endtime, questions);
+  const user = useSelector(selectUser);
+  // console.log(endtime, questions);
 
   useEffect(() => {
     // dispatch(
@@ -26,16 +30,21 @@ function QuizzCard(props) {
 
   const THREE_DAYS_IN_MS = endtime;
   // console.log("end time", THREE_DAYS_IN_MS);
-  const NOW_IN_MS = new Date().getTime();
-  // console.log(NOW_IN_MS);
+  // const NOW_IN_MS = moment();
+  // // console.log(NOW_IN_MS);
 
-  const diffInMs = THREE_DAYS_IN_MS+NOW_IN_MS;
-  // console.log(diffInMs)
-  const dateTimeAfterThreeDays = diffInMs-60*60*60;
+  // const diffInMs = moment(THREE_DAYS_IN_MS.diff(NOW_IN_MS));
+  // // console.log(diffInMs)
+  // const dateTimeAfterThreeDays = diffInMs;
 
   const productdetail = () => {
     history.push("/productpage");
   };
+
+  const deleteQuiz = async () => {
+    await deleteDoc(doc(db, "userInfo", user?.email, "question", qid));
+  };
+
   return (
     <div className="productitem">
       <Tilt
@@ -55,7 +64,7 @@ function QuizzCard(props) {
                 <IconButton
                   className="small_closeprofile"
                   style={{ width: "40px", height: "40px" }}
-                  // onClick={() => dispatch(SMALL_PROFILE(false))}
+                  onClick={() => deleteQuiz()}
                 >
                   <CloseIcon
                     style={{ width: "30px", height: "30px", color: "black" }}
