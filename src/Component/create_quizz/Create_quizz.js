@@ -44,13 +44,15 @@ export const Create_quizz = () => {
     var milliseconds = date.getTime();
     console.log(milliseconds);
     const unique_id = uuid();
-    const small_id = unique_id.slice(0, 15);
+    console.log(unique_id)
+    const small_id = unique_id.slice(0, 8);
     console.log(small_id);
-    setDoc(doc(db, "userInfo", `${user.uid}`, "question", `${small_id}`), {
+    setDoc(doc(db, "userInfo", `${user.email}`, "question",`${small_id}`), {
       topic: topic,
       questions: questionenter,
       endtime: milliseconds,
       timestep: serverTimestamp(),
+      DateStart: new Date(),
     });
     toast.success(`Quizz is Successfully added`, {
       position: "top-right",

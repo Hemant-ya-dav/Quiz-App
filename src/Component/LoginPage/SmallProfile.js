@@ -14,7 +14,6 @@ import { Button } from "@mui/material";
 function SmallProfile() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  console.log(user);
 
   return (
     <div className="smallProfile">
@@ -36,7 +35,9 @@ function SmallProfile() {
         <div className="smallprofile_container">
           <div className="small_head">
             <div className="user_info">
-              <span style={{ fontWeight: "600",fontSize:"14px" }}>{user?.displayName}</span>
+              <span style={{ fontWeight: "600", fontSize: "14px" }}>
+                {user?.displayName}
+              </span>
               <span>{user?.email}</span>
             </div>
             <IconButton
