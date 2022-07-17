@@ -41,7 +41,7 @@ function Login() {
     signInWithEmailAndPassword(auth, UserInfo.email, UserInfo.password)
       .then(async (userCredential) => {
         let userinfo = userCredential.user;
-        const docRef = doc(db, "userInfo", userinfo.uid);
+        const docRef = doc(db, "userInfo", UserInfo.email);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           userinfo.displayName = docSnap.data().name;
@@ -87,7 +87,7 @@ function Login() {
         user.displayName = UserInfo.FirstName;
         dispatch(SET_USER(user));
         dispatch(SMALL_LOGIN(false));
-        setDoc(doc(db, "userInfo", `${user.uid}`), {
+        setDoc(doc(db, "userInfo", `${UserInfo.email}`), {
           name: UserInfo.FirstName,
           email: UserInfo.email,
         });

@@ -5,6 +5,7 @@ const initialState = {
   user: null,
   smallProfile: false,
   smallLogin: false,
+  Allquizdetail: [],
 };
 
 export const detailSlice = createSlice({
@@ -16,6 +17,12 @@ export const detailSlice = createSlice({
       return {
         ...state,
         questionsDe: [...state.questionsDe, action.payload],
+      };
+    },
+    ALL_TO_QUIZ: (state, action) => {
+      return {
+        ...state,
+        Allquizdetail: [...state.Allquizdetail, action.payload],
       };
     },
     REMOVE_FROM_QUESTION: (state, action) => {
@@ -57,6 +64,7 @@ export const {
   SET_USERLOGOUT,
   ADD_TO_QUESTION,
   REMOVE_FROM_QUESTION,
+  ALL_TO_QUIZ,
 } = detailSlice.actions;
 
 export const selectDetails = (state) => state.detail.questionsDe;
