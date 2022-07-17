@@ -116,7 +116,7 @@ export const Add_question = ({ handlecloses }) => {
       </Row>
       <Card>
         <Card.Body>
-          <Card.Title>Enter Answer</Card.Title>
+          <Card.Title>Enter Correct Option</Card.Title>
           <Form.Control
             onChange={(e) => {
               setquestionlist({ ...questionlist, answer: e.target.value });
