@@ -10,7 +10,7 @@ import { ALL_TO_QUIZ, selectUser } from "../../../features/detailSlice";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../../Firebase";
-import moment from 'moment'
+import moment from "moment";
 
 function QuizzCard(props) {
   const history = useHistory();
@@ -73,10 +73,10 @@ function QuizzCard(props) {
               </div>
             </div>
             <div className="product_detail">
-              <div className="quiz_detail" style={{color: "white"}}>
-                <h3></h3>
-                <h2>Title : {topic}</h2>
-                <h5>No. Question : </h5>
+              <div className="quiz_detail">
+                <h3>{user.displayName}</h3>
+                <h5>Title : {topic}</h5>
+                <h5>No. Question :{questions.length} </h5>
               </div>
               <div className="quizz_btn">
                 <Link
@@ -91,6 +91,7 @@ function QuizzCard(props) {
                       timestemp: timestemp,
                     },
                   }}
+                  style={{ textDecoration: "none" }}
                   // params={{
                   //   qid: qid,
                   //   endtime: endtime,

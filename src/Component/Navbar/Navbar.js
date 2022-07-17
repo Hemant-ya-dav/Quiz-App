@@ -64,7 +64,7 @@ function Navbar() {
                   Home
                 </a>
               </li>
-              {user !== null ? (
+              {/* {user !== null ? (
                 <li className="nav-item nav_items">
                   <a className="nav-link" href="#">
                     Quizz
@@ -72,7 +72,7 @@ function Navbar() {
                 </li>
               ) : (
                 ""
-              )}
+              )} */}
               <div className="basket_icons">
                 <li
                   className="nav-item nav_icons"
@@ -84,7 +84,7 @@ function Navbar() {
                   }}
                 >
                   <PersonIcon />
-                  <span>Profile</span>
+                  <span>Login</span>
                 </li>
               </div>
             </ul>

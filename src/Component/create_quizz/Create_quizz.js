@@ -101,6 +101,18 @@ export const Create_quizz = () => {
         )}
       </div>
       <div className="date_picker">
+        <h4>Starting Date</h4>
+        <DatePicker
+          showTimeSelect
+          selected={startDate}
+          // onChange={(date) => {
+          //   console.log(date);
+          //   setStartDate(date);
+          // }}
+          // timeClassName={handleColor}
+        />
+      </div>
+      <div className="date_picker">
         <h4>Enter Ending Date</h4>
         <DatePicker
           showTimeSelect
