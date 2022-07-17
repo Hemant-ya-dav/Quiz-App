@@ -67,15 +67,15 @@ function QuizzCard(props) {
                   onClick={() => deleteQuiz()}
                 >
                   <CloseIcon
-                    style={{ width: "30px", height: "30px", color: "black" }}
+                    style={{ width: "30px", height: "30px", color: "white" }}
                   />
                 </IconButton>
               </div>
             </div>
             <div className="product_detail">
-              <div className="quiz_detail">
-                <h3>Saurabh Yadav</h3>
-                <h5>Title : {topic}</h5>
+              <div className="quiz_detail" style={{color: "white"}}>
+                <h3></h3>
+                <h2>Title : {topic}</h2>
                 <h5>No. Question : </h5>
               </div>
               <div className="quizz_btn">

@@ -12,7 +12,7 @@ import {
   SET_USER,
 } from "../../features/detailSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { auth, db } from "../../firebase";
+import { auth, db } from "../../Firebase";
 import { useHistory } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
