@@ -8,9 +8,11 @@ import { useLocation, useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../Firebase";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../../features/detailSlice";
+import { selectplayer, selectUser } from "../../../features/detailSlice";
 import { Quizz_screen } from "../../Quizz/Quizz_screen";
 import Result from "../../Quizz/Result";
+// import ReactTable from "react-table";
+// import "react-table/react-table.css";
 
 function QuizzPage(props) {
   const { qid } = useParams();
@@ -19,22 +21,12 @@ function QuizzPage(props) {
   const [questions, setquestion] = useState(useLocation().state.question);
 
   const user = useSelector(selectUser);
+  const playerdetail = useSelector(selectplayer);
   const [hidestart, sethidestart] = useState(true);
   // console.log("question data", questions.length);
   const [response, setresponse] = useState(0);
   const [score, setscore] = useState(0);
-
-  // useEffect(async () => {
-  //   getQuest();
-  // }, []);
-
-  // const getQuest = async () => {
-  //   const docRef = doc(db, "userInfo", user?.email, "question", qid);
-  //   const docSnap = await getDoc(docRef);
-  //   if (docSnap.exists()) {
-  //     console.log(docSnap.data());
-  //   }
-  // };
+  const [playername, setplayername] = useState("");
 
   const computeanswer = (answer, correctanswer) => {
     console.log("I am in computefunction", answer, correctanswer);
@@ -66,9 +58,9 @@ function QuizzPage(props) {
           <Form.Label>Enter Your Name</Form.Label>
           <Form.Control
             style={{ width: "20%", margin: "20px", margin: "20px" }}
-            // onChange={(e) => {
-            //   setquestionlist({ ...questionlist, question: e.target.value });
-            // }}
+            onChange={(e) => {
+              setplayername(e.target.value);
+            }}
             type="text"
             placeholder="Enter Your Name"
           />
@@ -109,9 +101,11 @@ function QuizzPage(props) {
             )}
           {response === questions.length ? (
             <Result
+              qid={qid}
               score={score}
               playagain={playAgain}
               lengthval={questions.length}
+              player={playername}
             />
           ) : null}
         </div>

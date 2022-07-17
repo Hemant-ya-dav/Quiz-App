@@ -150,130 +150,156 @@ function Login() {
 
               <div className="login_input">
                 {Continue ? (
-                  <form className="row g-3 login_form1">
-                    <div className="col-md-4 inputtag_div">
-                      <label for="validationDefault01" className="form-label">
-                        Enter Your Full Name
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control text_inputtag"
-                        id="validationDefault01"
-                        required
-                        value={UserInfo.FirstName}
-                        onChange={(e) => {
-                          setInfo({ ...UserInfo, FirstName: e.target.value });
-                        }}
-                      />
-                    </div>
-                    <div className="col-md-4 inputtag_div">
-                      <label for="validationDefault01" className="form-label">
-                        Enter Your Email*
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="validationDefault01"
-                        required
-                        value={UserInfo.email}
-                        onChange={(e) => {
-                          setInfo({ ...UserInfo, email: e.target.value });
-                        }}
-                      />
-                    </div>
-                    <div className="col-md-4 inputtag_div">
-                      <label for="validationDefault01" className="form-label">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        id="validationDefault01"
-                        required
-                        value={UserInfo.password}
-                        onChange={(e) => {
-                          setInfo({ ...UserInfo, password: e.target.value });
-                        }}
-                      />
-                    </div>
-                    <div className="col-12">
-                      <button
-                        className="btn btn-primary continue_btn"
-                        type="submit"
-                        onClick={(e) => {
-                          // setContinue(false);
-                          register(e);
-                        }}
+                  <>
+                    <form className="row g-3 login_form1">
+                      <div className="col-md-4 inputtag_div">
+                        <label for="validationDefault01" className="form-label">
+                          Enter Your Full Name
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control text_inputtag"
+                          id="validationDefault01"
+                          required
+                          value={UserInfo.FirstName}
+                          onChange={(e) => {
+                            setInfo({ ...UserInfo, FirstName: e.target.value });
+                          }}
+                        />
+                      </div>
+                      <div className="col-md-4 inputtag_div">
+                        <label for="validationDefault01" className="form-label">
+                          Enter Your Email*
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="validationDefault01"
+                          required
+                          value={UserInfo.email}
+                          onChange={(e) => {
+                            setInfo({ ...UserInfo, email: e.target.value });
+                          }}
+                        />
+                      </div>
+                      <div className="col-md-4 inputtag_div">
+                        <label for="validationDefault01" className="form-label">
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          className="form-control"
+                          id="validationDefault01"
+                          required
+                          value={UserInfo.password}
+                          onChange={(e) => {
+                            setInfo({ ...UserInfo, password: e.target.value });
+                          }}
+                        />
+                      </div>
+                      <div className="col-12">
+                        <button
+                          className="btn btn-primary continue_btn"
+                          type="submit"
+                          onClick={(e) => {
+                            // setContinue(false);
+                            register(e);
+                          }}
+                        >
+                          SING UP
+                        </button>
+                      </div>
+                    </form>
+                    <div className="or-separator">
+                      <hr></hr>
+                      <span
+                        className="or-text-desktop"
+                        style={{ marginTop: "0px", marginBottom: "12px" }}
                       >
-                        SING UP
-                      </button>
+                        Or
+                      </span>{" "}
+                      <hr></hr>
                     </div>
-                  </form>
+                    <a
+                      style={{
+                        color: "blue",
+                        cursor: "pointer",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                      onClick={() => setContinue(false)}
+                    >
+                      LOGIN IN
+                    </a>
+                  </>
                 ) : (
-                  <form className="row g-3 login_form1">
-                    <div className="col-md-4 inputtag_div">
-                      <label for="validationDefault01" className="form-label">
-                        Enter Your Email*
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="validationDefault01"
-                        required
-                        value={UserInfo.email}
-                        onChange={(e) => {
-                          setInfo({ ...UserInfo, email: e.target.value });
-                        }}
-                      />
-                    </div>
-                    <div className="col-md-4 inputtag_div">
-                      <label for="validationDefault01" className="form-label">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        id="validationDefault01"
-                        required
-                        value={UserInfo.password}
-                        onChange={(e) => {
-                          setInfo({ ...UserInfo, password: e.target.value });
-                        }}
-                      />
-                    </div>
-                    <div className="col-12">
-                      <button
-                        className="btn btn-primary continue_btn"
-                        type="submit"
-                        onClick={(e) => {
-                          signIn(e);
-                        }}
+                  <>
+                    <form className="row g-3 login_form1">
+                      <div className="col-md-4 inputtag_div">
+                        <label for="validationDefault01" className="form-label">
+                          Enter Your Email*
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="validationDefault01"
+                          required
+                          value={UserInfo.email}
+                          onChange={(e) => {
+                            setInfo({ ...UserInfo, email: e.target.value });
+                          }}
+                        />
+                      </div>
+                      <div className="col-md-4 inputtag_div">
+                        <label for="validationDefault01" className="form-label">
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          className="form-control"
+                          id="validationDefault01"
+                          required
+                          value={UserInfo.password}
+                          onChange={(e) => {
+                            setInfo({ ...UserInfo, password: e.target.value });
+                          }}
+                        />
+                      </div>
+                      <div className="col-12">
+                        <button
+                          className="btn btn-primary continue_btn"
+                          type="submit"
+                          onClick={(e) => {
+                            signIn(e);
+                          }}
+                        >
+                          LOGIN IN
+                        </button>
+                      </div>
+                    </form>
+                    <div className="or-separator">
+                      <hr></hr>
+                      <span
+                        className="or-text-desktop"
+                        style={{ marginTop: "0px", marginBottom: "12px" }}
                       >
-                        CONTINUE
-                      </button>
+                        Or
+                      </span>{" "}
+                      <hr></hr>
                     </div>
-                  </form>
+                    <a
+                      style={{
+                        color: "blue",
+                        cursor: "pointer",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                      onClick={() => setContinue(true)}
+                    >
+                      Sign Up
+                    </a>
+                  </>
                 )}
-                <div className="or-separator">
-                  <hr></hr>
-                  <span
-                    className="or-text-desktop"
-                    style={{ marginTop: "0px", marginBottom: "12px" }}
-                  >
-                    Or
-                  </span>{" "}
-                  <hr></hr>
-                </div>
-                <a
-                  style={{ color: "blue", cursor: "pointer" }}
-                  onClick={() => setContinue(true)}
-                >
-                  Sign Up
-                </a>
-                {/* <p>
-                  By sign In I agree{" "}
-                  <span style={{ color: "blue" }}>Terms & Condition</span>
-                </p> */}  
               </div>
             </div>
           </div>

@@ -24,7 +24,6 @@ function Navbar() {
         <div className="container-fluid">
           <a
             className="navbar-brand logo_img"
-            href="#"
             onClick={() => {
               if (xwidth <= 990) {
                 $(".navbar-collapse").hide(500, "linear");
@@ -34,7 +33,7 @@ function Navbar() {
           >
             <img
               src={logo}
-              style={{ width: "13vw", height: "5vh", objectFit: "cover" }}
+              style={{ width: "22vw", height: "5vh", objectFit: "contain" }}
             />
           </a>
           <button
@@ -82,6 +81,7 @@ function Navbar() {
                     }
                     dispatch(SMALL_PROFILE(true));
                   }}
+                  style={{marginLeft:"130vh"}}
                 >
                   <PersonIcon />
                   <span>Login</span>

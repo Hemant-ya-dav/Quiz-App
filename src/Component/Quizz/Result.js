@@ -1,7 +1,7 @@
 import React from "react";
 // import "../style.css";
 
-const Result = ({ score, playagain, length }) => (
+const Result = ({ score, playagain, length, player }) => (
   <div className="score-board">
     <div className="score">
       {" "}

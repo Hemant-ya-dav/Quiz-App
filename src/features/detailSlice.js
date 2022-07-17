@@ -6,6 +6,7 @@ const initialState = {
   smallProfile: false,
   smallLogin: false,
   Allquizdetail: [],
+  players: [],
 };
 
 export const detailSlice = createSlice({
@@ -17,6 +18,12 @@ export const detailSlice = createSlice({
       return {
         ...state,
         questionsDe: [...state.questionsDe, action.payload],
+      };
+    },
+    ADD_TO_PLAYERS: (state, action) => {
+      return {
+        ...state,
+        players: [...state.players, action.payload],
       };
     },
     ALL_TO_QUIZ: (state, action) => {
@@ -65,11 +72,13 @@ export const {
   ADD_TO_QUESTION,
   REMOVE_FROM_QUESTION,
   ALL_TO_QUIZ,
+  ADD_TO_PLAYERS,
 } = detailSlice.actions;
 
 export const selectDetails = (state) => state.detail.questionsDe;
 export const selectUser = (state) => state.detail.user;
 export const selectsmallprofile = (state) => state.detail.smallProfile;
 export const selectsmalllogin = (state) => state.detail.smallLogin;
+export const selectplayer = (state) => state.detail.players;
 
 export default detailSlice.reducer;
