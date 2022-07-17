@@ -121,8 +121,8 @@ function Login() {
           </div>
           <div className="login_content">
             <h5>Welcome To Quizz World</h5>
-            <p>Join/sign in using</p>
-            <div className="login_signlogo">
+            {/* <p>Login To Quizz World</p> */}
+            {/* <div className="login_signlogo">
               <div className="login_facebook">
                 <FacebookIcon className="fb_logo" color="primary" />
                 <span>Facebook</span>
@@ -134,8 +134,8 @@ function Login() {
                 <GoogleIcon className="fb_logo" color="rgb(66, 133, 244)" />
                 <span>Google</span>
               </div>
-            </div>
-            <div className="or-separator">
+            </div> */}
+            {/* <div className="or-separator">
               <hr></hr>
               <span
                 className="or-text-desktop"
@@ -144,7 +144,7 @@ function Login() {
                 Or
               </span>{" "}
               <hr></hr>
-            </div>
+            </div> */}
             <div className="login_inputbox">
               <div id="sign-in-button"></div>
 
@@ -153,7 +153,7 @@ function Login() {
                   <form className="row g-3 login_form1">
                     <div className="col-md-4 inputtag_div">
                       <label for="validationDefault01" className="form-label">
-                        First name
+                        Enter Your Full Name
                       </label>
                       <input
                         type="text"
@@ -270,10 +270,10 @@ function Login() {
                 >
                   Sign Up
                 </a>
-                <p>
+                {/* <p>
                   By sign In I agree{" "}
                   <span style={{ color: "blue" }}>Terms & Condition</span>
-                </p>
+                </p> */}  
               </div>
             </div>
           </div>
