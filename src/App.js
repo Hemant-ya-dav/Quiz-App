@@ -18,9 +18,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // toast.configure();
-import Footer from "./Component/Footer/Footer";
-import { Add_question } from "./Component/Create_quizz/Add_question";
-import { Create_quizz } from "./Component/Create_quizz/Create_quizz";
+// import Footer from "./Component/Footer/Footer";
+// import { Add_question } from "./Component/Create_quizz/Add_question";
+// import { Create_quizz } from "./Component/Create_quizz/Create_quizz";
 import { Quizz_screen } from "./Component/Quizz/Quizz_screen";
 import { Result } from "./Component/Quizz/Result"
 
@@ -51,6 +51,7 @@ function App() {
     <Router>
       <div className="App">
         {/* <Navbar /> */}
+        <Result/>
         {smallprof ? <SmallProfile /> : ""}
         {smalllogi ? <Login /> : ""}
         <Result/>
