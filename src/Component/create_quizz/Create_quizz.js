@@ -143,12 +143,12 @@ export const Create_quizz = () => {
               width: "50%",
               height: "300px",
             }}
-            options={{ scale: 2, glare: true, "max-glare": 1, max: 25 }}
+            options={{ scale: 2, "max-glare": 1, max: 25 }}
           >
             <div className="quiz_container">
               <div className="quizz_card">
                 <div className="quizz_question">
-                  <h1>{data.question}</h1>
+                  <h1 style={{color:"white"}}>{data.question}</h1>
                   <IconButton
                     className="small_closeprofile"
                     onClick={() => dispatch(REMOVE_FROM_QUESTION(index))}
@@ -158,16 +158,16 @@ export const Create_quizz = () => {
                 </div>
                 <div className="quizz_detail">
                   <ol type="1">
-                    <h3>
+                    <h3 style={{color:"white"}}>
                       <li>{data.Option1}</li>
                     </h3>
-                    <h3>
+                    <h3 style={{color:"white"}}>
                       <li>{data.Option2}</li>
                     </h3>
-                    <h3>
+                    <h3 style={{color:"white"}}>
                       <li>{data.Option3}</li>
                     </h3>
-                    <h3>
+                    <h3 style={{color:"white"}}>
                       <li>{data.Option4}</li>
                     </h3>
                   </ol>

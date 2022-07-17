@@ -27,7 +27,7 @@ function SmallProfile() {
               className="firstsign_in"
               onClick={() => dispatch(SMALL_LOGIN(true))}
             >
-              SIGN IN
+              LOGIN IN
             </Button>
           </div>
         </div>

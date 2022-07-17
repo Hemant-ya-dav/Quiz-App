@@ -38,7 +38,7 @@ function QuizzPage(props) {
 
   const computeanswer = (answer, correctanswer) => {
     console.log("I am in computefunction", answer, correctanswer);
-    if (true) {
+    if (String(answer ) == String(correctanswer)){
       setscore(1 + score);
       console.log("Score is", score);
     }

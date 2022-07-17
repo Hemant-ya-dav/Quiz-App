@@ -67,7 +67,7 @@ function QuizzCard(props) {
                   onClick={() => deleteQuiz()}
                 >
                   <CloseIcon
-                    style={{ width: "30px", height: "30px", color: "black" }}
+                    style={{ width: "30px", height: "30px", color: "white" }}
                   />
                 </IconButton>
               </div>

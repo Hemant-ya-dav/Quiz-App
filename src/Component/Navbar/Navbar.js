@@ -34,7 +34,7 @@ function Navbar() {
           >
             <img
               src={logo}
-              style={{ width: "13vw", height: "5vh", objectFit: "cover" }}
+              style={{ width: "18vw", height: "5vh", objectFit: "contain" }}
             />
           </a>
           <button
@@ -74,7 +74,7 @@ function Navbar() {
                 ""
               )} */}
               <div className="basket_icons">
-                <li
+                <li style={{marginLeft:"140vh"}}
                   className="nav-item nav_icons"
                   onMouseEnter={() => {
                     if (xwidth <= 990) {

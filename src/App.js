@@ -30,7 +30,7 @@ import Footer from "./Component/Footer/Footer";
 import { Add_question } from "./Component/create_quizz/Add_question";
 import { Create_quizz } from "./Component/create_quizz/Create_quizz";
 import { Quizz_screen } from "./Component/Quizz/Quizz_screen";
-import { Result } from "./Component/Quizz/Result";
+import  Result  from "./Component/Quizz/Result";
 import QuizzPage from "./Component/Helper/QuizCard/QuizzPage";
 
 function App() {
@@ -78,6 +78,23 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        {/* <Link to="/quizzpage/:qid">
+            <QuizzPage />
+          </Link>
+          <Link to="/quizzscrren">
+            <Quizz_screen />
+          </Link>
+          <Link to="/addquestion">
+            <Navbar />
+            <Create_quizz />
+          </Link>
+          <Link to="/">
+            <Navbar />
+            <Home />
+          </Link>
+          <Link to="/result">
+            <Result/>
+          </Link> */}
         <ToastContainer />
       </div>
     </Router>

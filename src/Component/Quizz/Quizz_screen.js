@@ -34,9 +34,10 @@ export const Quizz_screen = ({
                 <Button
                   onClick={() => {
                     console.log(correctanswer, option, index);
-                    if (String(index + 1) == String(correctanswer)) {
-                      selected(`${option}`, `${correctanswer}`);
-                    }
+                    // if (String(index + 1) == String(correctanswer))
+                    //  {
+                      selected(`${index}`, `${correctanswer}`);
+                    // }
                   }}
                 >
                   {option}
