@@ -14,11 +14,10 @@ import { Button } from "@mui/material";
 function SmallProfile() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  console.log(user);
 
   return (
     <div className="smallProfile">
-      {user.length === 0 ? (
+      {user === null ? (
         <div
           className="smallprofile_container1"
           onMouseLeave={() => dispatch(SMALL_PROFILE(false))}
@@ -36,8 +35,10 @@ function SmallProfile() {
         <div className="smallprofile_container">
           <div className="small_head">
             <div className="user_info">
-              <span style={{ fontWeight: "600",fontSize:"14px" }}>{user[0]?.displayName}</span>
-              <span>{user[0]?.email}</span>
+              <span style={{ fontWeight: "600", fontSize: "14px" }}>
+                {user?.displayName}
+              </span>
+              <span>{user?.email}</span>
             </div>
             <IconButton
               className="small_closeprofile"

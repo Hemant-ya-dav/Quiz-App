@@ -1,22 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./QuizzCard.css";
 import Tilt from "react-vanilla-tilt";
 import { useHistory } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import CountdownTimer from "../CountDown/CountdownTimer";
+import CloseIcon from "@mui/icons-material/Close";
+import { useDispatch, useSelector } from "react-redux";
+import { ALL_TO_QUIZ, selectUser } from "../../../features/detailSlice";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../../Firebase";
+import moment from 'moment'
 
-
-function QuizzCard() {
+function QuizzCard(props) {
   const history = useHistory();
+  const { qid, endtime, datetime, topic, timestemp } = props;
+  const [questions, setquestion] = useState(props.question);
+  const [seed, setseed] = useState("");
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  // console.log(endtime, questions);
 
-  const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
-  const NOW_IN_MS = new Date().getTime();
+  useEffect(() => {
+    // dispatch(
+    //   ALL_TO_QUIZ({ qid, endtime, datetime, topic, timestemp, questions })
+    // );
+    setseed(Math.floor(Math.random() * 5000));
+  }, []);
 
-  const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
+  const THREE_DAYS_IN_MS = endtime;
+  // console.log("end time", THREE_DAYS_IN_MS);
+  // const NOW_IN_MS = moment();
+  // // console.log(NOW_IN_MS);
+
+  // const diffInMs = moment(THREE_DAYS_IN_MS.diff(NOW_IN_MS));
+  // // console.log(diffInMs)
+  // const dateTimeAfterThreeDays = diffInMs;
 
   const productdetail = () => {
     history.push("/productpage");
   };
+
+  const deleteQuiz = async () => {
+    await deleteDoc(doc(db, "userInfo", user?.email, "question", qid));
+  };
+
   return (
     <div className="productitem">
       <Tilt
@@ -26,28 +54,62 @@ function QuizzCard() {
         <div className="product_container">
           <div className="product_card">
             <div className="product_content">
-              <img
-                src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.biography.com%2F.image%2Far_1%3A1%252Cc_fill%252Ccs_srgb%252Cfl_progressive%252Cq_auto%3Agood%252Cw_1200%2FMTc5OTk2ODUyMTMxNzM0ODcy%2Fgettyimages-1229892983-square.jpg&imgrefurl=https%3A%2F%2Fwww.biography.com%2Fbusiness-figure%2Felon-musk&tbnid=3Ooc13ZHuSIOWM&vet=12ahUKEwjjlc3EtPz4AhV5_zgGHd4BCsEQMygEegUIARDiAQ..i&docid=h24P-DAcCzayvM&w=1200&h=1200&q=elon%20musk&ved=2ahUKEwjjlc3EtPz4AhV5_zgGHd4BCsEQMygEegUIARDiAQ"
-                alt=""
-                onClick={productdetail}
-              />
+              <div>
+                <img
+                  src={`https://avatars.dicebear.com/api/human/${seed}.svg`}
+                  alt=""
+                />
+              </div>
+              <div className="delete_quizz">
+                <IconButton
+                  className="small_closeprofile"
+                  style={{ width: "40px", height: "40px" }}
+                  onClick={() => deleteQuiz()}
+                >
+                  <CloseIcon
+                    style={{ width: "30px", height: "30px", color: "black" }}
+                  />
+                </IconButton>
+              </div>
             </div>
             <div className="product_detail">
               <div className="quiz_detail">
                 <h3>Saurabh Yadav</h3>
-                <h5>Title : Science</h5>
-                <h5>No. Question : 10</h5>
+                <h5>Title : {topic}</h5>
+                <h5>No. Question : </h5>
               </div>
               <div className="quizz_btn">
-                <Button
-                  className="quizz_btn_in"
-                  // onClick={() => dispatch(SMALL_LOGIN(true))}
+                <Link
+                  to={{
+                    pathname: `/quizzpage/${qid}`,
+                    state: {
+                      qid: qid,
+                      endtime: endtime,
+                      datetime: datetime,
+                      topic: topic,
+                      question: questions,
+                      timestemp: timestemp,
+                    },
+                  }}
+                  // params={{
+                  //   qid: qid,
+                  //   endtime: endtime,
+                  //   datetime: datetime,
+                  //   topic: topic,
+                  //   questions: questions,
+                  //   timestemp: timestemp,
+                  // }}
                 >
-                  Start
-                </Button>
+                  <Button
+                    className="quizz_btn_in"
+                    // onClick={() => dispatch(SMALL_LOGIN(true))}
+                  >
+                    View
+                  </Button>
+                </Link>
               </div>
               <div className="quizz_counter">
-                <CountdownTimer targetDate={dateTimeAfterThreeDays} />
+                {/* <CountdownTimer targetDate={dateTimeAfterThreeDays} /> */}
               </div>
             </div>
           </div>

@@ -45,7 +45,6 @@ function Login() {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           userinfo.displayName = docSnap.data().name;
-          userinfo.photoURL = docSnap.data().photourl;
         }
         // console.log("This login time data", userinfo.displayName);
         dispatch(SET_USER(userinfo));
@@ -91,7 +90,6 @@ function Login() {
         setDoc(doc(db, "userInfo", `${UserInfo.email}`), {
           name: UserInfo.FirstName,
           email: UserInfo.email,
-          photourl: "",
         });
         toast.success(`${UserInfo.FirstName} Register Successfully`, {
           position: "top-right",

@@ -6,14 +6,22 @@ import {
   selectsmallbasket,
   selectsmalllogin,
   selectsmallprofile,
+  selectUser,
   SET_USER,
 } from "./features/detailSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Login from "./Component/LoginPage/Login";
 import Home from "./Component/Home/Home";
 import SmallProfile from "./Component/LoginPage/SmallProfile";
-import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "./firebase";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import { auth, db } from "./Firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,20 +30,22 @@ import "react-toastify/dist/ReactToastify.css";
 // import { Add_question } from "./Component/Create_quizz/Add_question";
 // import { Create_quizz } from "./Component/Create_quizz/Create_quizz";
 import { Quizz_screen } from "./Component/Quizz/Quizz_screen";
-import { Result } from "./Component/Quizz/Result"
+import { Result } from "./Component/Quizz/Result";
+import QuizzPage from "./Component/Helper/QuizCard/QuizzPage";
 
 function App() {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   useEffect(
     () =>
       onAuthStateChanged(auth, async (user) => {
         if (user) {
-          const docRef = doc(db, "userInfo", user.email);
+          const docRef = doc(db, "userInfo", user?.email);
           const docSnap = await getDoc(docRef);
           if (docSnap.exists()) {
             user.displayName = docSnap.data().name;
-            user.photoURL = docSnap.data().photourl;
+            console.log(user);
             dispatch(SET_USER(user));
           }
           // console.log("This is user auth function", user);
@@ -50,26 +60,31 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <Navbar /> */}
-        <Result/>
         {smallprof ? <SmallProfile /> : ""}
         {smalllogi ? <Login /> : ""}
-        <Result/>
-        {/* <Switch>
-          <Route path="/addquestion">
+        <Switch>
+          <Route exact path="/quizzpage/:qid">
+            <QuizzPage />
+          </Route>
+          <Route exact path="/quizzscrren">
+            <Quizz_screen />
+          </Route>
+          <Route exact path="/addquestion">
+            <Navbar />
             <Create_quizz />
           </Route>
           <Route path="/">
+            <Navbar />
             <Home />
           </Route>
           <Route path="/result">
             <Result/>
-          </Route> */}
+          </Route> */
           {/* <Route path="/addquizz">
             <Add_question/>
             <Create_quizz/>
           </Route> */}
-        {/* </Switch> */}
+        </Switch>
         <ToastContainer />
       </div>
     </Router>

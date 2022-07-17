@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   questionsDe: [],
-  user: [],
+  user: null,
   smallProfile: false,
   smallLogin: false,
+  Allquizdetail: [],
 };
 
 export const detailSlice = createSlice({
@@ -18,9 +19,15 @@ export const detailSlice = createSlice({
         questionsDe: [...state.questionsDe, action.payload],
       };
     },
+    ALL_TO_QUIZ: (state, action) => {
+      return {
+        ...state,
+        Allquizdetail: [...state.Allquizdetail, action.payload],
+      };
+    },
     REMOVE_FROM_QUESTION: (state, action) => {
       let newBasket = [...state.questionsDe];
-      let index=action.payload;
+      let index = action.payload;
       if (index >= 0) {
         newBasket.splice(index, 1); //Cut the same index to the newBasket by one
       }
@@ -29,17 +36,17 @@ export const detailSlice = createSlice({
         questionsDe: newBasket,
       };
     },
-    SET_USER: (state, action) => {
+    SET_QUESTIONOUT: (state, action) => {
       return {
         ...state,
-        user: [...state.user, action.payload],
+        questionsDe: [],
       };
     },
+    SET_USER: (state, action) => {
+      state.user = action.payload;
+    },
     SET_USERLOGOUT: (state, action) => {
-      return {
-        ...state,
-        user: [],
-      };
+      state.user = null;
     },
     SMALL_PROFILE: (state, action) => {
       state.smallProfile = action.payload;
@@ -56,7 +63,8 @@ export const {
   SMALL_LOGIN,
   SET_USERLOGOUT,
   ADD_TO_QUESTION,
-  REMOVE_FROM_QUESTION
+  REMOVE_FROM_QUESTION,
+  ALL_TO_QUIZ,
 } = detailSlice.actions;
 
 export const selectDetails = (state) => state.detail.questionsDe;
