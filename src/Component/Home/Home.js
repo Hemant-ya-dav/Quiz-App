@@ -54,7 +54,8 @@ function Home() {
     <div className="home_page">
       {user !== null ? (
         <div className="home_div">
-          {allquestion.map((item, index) => (
+          
+          {(allquestion.length > 0 )?(allquestion?.map((item, index) => (
             <QuizzCard
               key={item.id}
               qid={item.id}
@@ -64,11 +65,12 @@ function Home() {
               timestemp={item.timestemp}
               question={item.questions}
             />
-          ))}
+          ))): <h1 style={{fontSize:80, color:"white", marginTop:300,flex: 1, flexWrap: 'wrap'}}>Create Your Own Quizz</h1>}
         </div>
       ) : (
-        ""
-      )}
+        <><h1 style={{fontSize:80, color:"white", marginTop:300,flex: 1, flexWrap: 'wrap'}}>Welcome to the Quizz</h1>
+        <h1 style={{fontSize:80, color:"white",flex: 1, flexWrap: 'wrap'}}>WORLD</h1>
+      </>)}
       {user !== null ? (
         // <Link to="/addquestion">
         <div

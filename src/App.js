@@ -25,14 +25,14 @@ import { auth, db } from "./Firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// toast.configure();
-import Footer from "./Component/Footer/Footer";
-import { Add_question } from "./Component/create_quizz/Add_question";
-import { Create_quizz } from "./Component/create_quizz/Create_quizz";
-import { Quizz_screen } from "./Component/Quizz/Quizz_screen";
-import { Result } from "./Component/Quizz/Result";
-import QuizzPage from "./Component/Helper/QuizCard/QuizzPage";
 
+import Footer from "./Component/Footer/Footer";
+import { Add_question } from "./Component/Create_quizz/Add_question";
+import { Create_quizz } from "./Component/Create_quizz/Create_quizz";
+import { Quizz_screen } from "./Component/Quizz/Quizz_screen";
+import Result from "./Component/Quizz/Result";
+import QuizzPage from "./Component/Helper/QuizCard/QuizzPage";
+// toast.configure();
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
@@ -60,6 +60,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Navbar/>
         {smallprof ? <SmallProfile /> : ""}
         {smalllogi ? <Login /> : ""}
         <Switch>
@@ -76,6 +77,9 @@ function App() {
           <Route path="/">
             <Navbar />
             <Home />
+          </Route>
+          <Route path="/result">
+            <Result/>
           </Route>
         </Switch>
         <ToastContainer />
