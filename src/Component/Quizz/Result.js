@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-// import { motion } from "framer-motion";
-// import LottieView from "lottie-react-native";
+import React from "react";
+// import "../style.css";
 
-export const Result = () => {
-  const [score, setScore] = useState(10);
-  const [isOn, setIsOn] = React.useState(false);
-
-  const toggleSwitch = () => setIsOn(!isOn);
-  return (
-    <div>
-      {score > 5 ? <h1>Congratulations</h1> : <h1>Better Luck Next</h1>}
+const Result = ({ score, playagain, length }) => (
+  <div className="score-board">
+    <div className="score">
+      {" "}
+      Your score is {score} / {length} correct answer ! ! !{" "}
     </div>
-  );
-};
+    <button className="playBtn" onClick={playagain}>
+      {" "}
+      Play Again{" "}
+    </button>
+  </div>
+);
+
+export default Result;

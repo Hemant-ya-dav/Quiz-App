@@ -30,7 +30,7 @@ function QuizzCard(props) {
   // console.log(NOW_IN_MS);
 
   const diffInMs = THREE_DAYS_IN_MS+NOW_IN_MS;
-  console.log(diffInMs)
+  // console.log(diffInMs)
   const dateTimeAfterThreeDays = diffInMs-60*60*60;
 
   const productdetail = () => {

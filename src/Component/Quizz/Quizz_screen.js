@@ -17,7 +17,7 @@ export const Quizz_screen = ({
   const handleNext = () => {
     alert("page here");
   };
-  console.log(correctanswer);
+  // console.log(correctanswer);
   const Option = [option1, option2, option3, option4];
   return (
     <div>
@@ -31,7 +31,14 @@ export const Quizz_screen = ({
           <Col>
             <Card>
               <Card.Body>
-                <Button onClick={() => selected(option, correctanswer)}>
+                <Button
+                  onClick={() => {
+                    console.log(correctanswer, option);
+                    if (String(option) == String(correctanswer)) {
+                      selected(`${option}`, `${correctanswer}`);
+                    }
+                  }}
+                >
                   {option}
                 </Button>
               </Card.Body>

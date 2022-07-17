@@ -10,6 +10,7 @@ import { db } from "../../../Firebase";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../../features/detailSlice";
 import { Quizz_screen } from "../../Quizz/Quizz_screen";
+import Result from "../../Quizz/Result";
 
 function QuizzPage(props) {
   const { qid } = useParams();
@@ -19,7 +20,7 @@ function QuizzPage(props) {
 
   const user = useSelector(selectUser);
   const [hidestart, sethidestart] = useState(true);
-  console.log("question data", questions.length);
+  // console.log("question data", questions.length);
   const [response, setresponse] = useState(0);
   const [score, setscore] = useState(0);
 
@@ -35,18 +36,20 @@ function QuizzPage(props) {
   //   }
   // };
 
-  function computeanswer(answer, correctanswer) {
-    if (answer == correctanswer) {
+  const computeanswer = (answer, correctanswer) => {
+    console.log("I am in computefunction", answer, correctanswer);
+    if (true) {
       setscore(1 + score);
       console.log("Score is", score);
     }
     setresponse(1 + response);
-    if (response == questions.length) {
-      sethidestart(true);
-      console.log("response is match");
-    }
-    console.log(response);
-  }
+  };
+
+  const playAgain = () => {
+    sethidestart(true);
+    setscore(0);
+    setresponse(0);
+  };
 
   return (
     <div className="quiz_page">
@@ -85,7 +88,10 @@ function QuizzPage(props) {
         >
           {response < questions.length &&
             questions.map(
-              ({ question, Option1, Option2, Option3, Option4, answer },index) => (
+              (
+                { question, Option1, Option2, Option3, Option4, answer },
+                index
+              ) => (
                 <Quizz_screen
                   key={index}
                   inde={index}
@@ -101,6 +107,13 @@ function QuizzPage(props) {
                 />
               )
             )}
+          {response === questions.length ? (
+            <Result
+              score={score}
+              playagain={playAgain}
+              lengthval={questions.length}
+            />
+          ) : null}
         </div>
       )}
     </div>
